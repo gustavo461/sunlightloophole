@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nerve Fresh</title> <!-- Título da aba -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16595101821"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16595101821');
+    </script>
+
+    <style>
+        /* Garantir que o fundo ocupe toda a tela */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Evita rolagem horizontal */
+        }
+
+        /* Imagem de fundo como elemento separado */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/ufGwesB.png'); /* Imagem de fundo para desktop */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1; /* Atrás do pop-up */
+        }
+
+        /* Imagem de fundo para dispositivos móveis */
+        @media (max-width: 768px) {
+            .background-image {
+                background-image: url('https://i.imgur.com/7DTF0jf.png'); /* Imagem de fundo para mobile */
+            }
+        }
+
+        /* Estilo do pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.85); /* Fundo branco com 15% de opacidade */
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1001; /* Acima do fundo */
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
+        }
+
+        .popup p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .popup button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .popup button.decline {
+            background: #dc3545;
+        }
+
+        .popup button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .popup button.decline:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        /* Estilo do overlay */
+        .overlay {
+            display: none; /* Inicialmente escondido */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+            z-index: 1000; /* Abaixo do pop-up */
+            backdrop-filter: blur(8px); /* Adiciona desfoque ao fundo */
+        }
+
+        /* Animação de fade-in para o pop-up */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div> <!-- Imagem de fundo como elemento -->
+    <div class="overlay"></div>
+    <div class="popup" id="popup">
+        <p>We use cookies and similar technologies to help personalise content, tailor and measure ads, and provide a better experience. By clicking accept, you agree to this, as outlined in our Cookie Policy.</p>
+        <button id="acceptBtn">Accept</button>
+        <button class="decline" id="declineBtn">Decline</button>
+    </div>
+
+    <script>
+        // Mostrar o pop-up
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+        }
+
+        // Redirecionar após 5 segundos se não houver interação
+        let redirectTimer = setTimeout(() => {
+            window.location.href = 'https://hop.clickbank.net/?vendor=syncup&affiliate=gus461&lid=235060';
+        }, 7000);
+
+        // Configurar eventos para os botões
+        document.getElementById('acceptBtn').addEventListener('click', () => {
+            clearTimeout(redirectTimer);
+            window.location.href = 'https://hop.clickbank.net/?vendor=syncup&affiliate=gus461&lid=235060';
+        });
+
+        document.getElementById('declineBtn').addEventListener('click', () => {
+            clearTimeout(redirectTimer);
+            window.location.href = 'https://hop.clickbank.net/?vendor=syncup&affiliate=gus461&lid=235060'; // Redireciona mesmo ao recusar
+        });
+
+        // Mostrar o pop-up quando a página carregar
+        window.onload = showPopup;
+    </script>
+</body>
+</html>
