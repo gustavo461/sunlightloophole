@@ -40,17 +40,6 @@
             z-index: 1; /* Atrás do overlay */
         }
 
-        /* Imagem de fundo para dispositivos móveis */
-        @media (max-width: 768px) {
-            .background-image {
-                background-image: url('https://i.imgur.com/jP7Cg9M.png'); /* Imagem de fundo para mobile */
-            }
-            .content-image {
-                max-width: 140%; /* Aumentar a largura máxima para mobile */
-                max-height: 140%; /* Aumentar a altura máxima para mobile */
-            }
-        }
-
         /* Estilo do overlay */
         .overlay {
             position: fixed;
@@ -68,9 +57,19 @@
 
         /* Imagem do conteúdo */
         .content-image {
-            max-width: 50%; /* Diminuir a largura máxima */
-            max-height: 50%; /* Diminuir a altura máxima */
+            width: 80%; /* Aumenta a largura da imagem para mobile */
+            height: auto; /* Mantém a proporção da imagem */
             z-index: 1001; /* Acima do overlay */
+        }
+
+        /* Imagem de fundo para dispositivos móveis */
+        @media (max-width: 768px) {
+            .background-image {
+                background-image: url('https://i.imgur.com/jP7Cg9M.png'); /* Imagem de fundo para mobile */
+            }
+            .content-image {
+                width: 100%; /* Aumenta ainda mais a largura da imagem */
+            }
         }
     </style>
 </head>
